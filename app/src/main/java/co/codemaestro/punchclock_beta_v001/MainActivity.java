@@ -1,6 +1,7 @@
 package co.codemaestro.punchclock_beta_v001;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     public static final String TIME_ON_CLOCK = "co.codemaestro.punchclock_beta_v001.extra.MESSAGE";
     public static final int TEXT_REQUEST = 1;
+    private SharedPreferences mPreferences;
+
+
 
     private final Runnable mRunnable = new Runnable() {
         @Override
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
         timeMain = findViewById(R.id.timer_main);
         mHandler = new Handler();
+        String sharedPrefFile =
+                "co.codemaestro.punchclock_beta_v001";
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+
     }
 
+    //Saving current instance state
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -59,16 +69,23 @@ public class MainActivity extends AppCompatActivity {
 //        mStarted = true;
     }
 
+
+    //Need to save current seconds in mPreferences
     @Override
     protected void onPause() {
         super.onPause();
         Log.d(LOG_TAG, "onPause");
+        super.onPause();
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.apply();
     }
 
+    //Need to restore current sharedPreferences
     @Override
     protected void onRestart() {
         super.onRestart();
         Log.d(LOG_TAG, "onRestart");
+
     }
 
     @Override
