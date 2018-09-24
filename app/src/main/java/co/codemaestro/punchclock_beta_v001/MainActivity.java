@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public EditText timeSeconds, timeClockOut; // The editText widgets for the three timers
     public TextView timeMain;
     private boolean mStarted;
-    
+
 
 
     @Override
