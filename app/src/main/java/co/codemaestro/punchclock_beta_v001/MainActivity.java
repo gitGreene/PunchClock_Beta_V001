@@ -126,41 +126,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-//
-//    public Runnable runny = new Runnable() {
-//
-//        public void run() {
-//
-//            longSeconds = SystemClock.elapsedRealtime() - timeOnClick;
-//
-//            // Converting millis to total seconds/minutes/hours
-//            totalSeconds = (int) (longSeconds / 1000);
-//
-//            // Converting total seconds/minutes/hours into analog clock
-//            seconds = totalSeconds % 60;
-//            minutes = totalSeconds / 60 % 60;
-//            hours = totalSeconds / 3600;
-//
-//            /* Starts the count in "Time" textView
-//                Will put a zero in front of each number in "hours:minutes:seconds"
-//                if it is less then 10, keeping the "00:00:00" format */
-//            if (seconds <= 9 && minutes <= 9 && hours <= 9) {
-//                timeMain.setText("0" + hours + ":0" + minutes + ":0" + seconds);
-//
-//            } else if (minutes <= 9 && hours <= 9) {
-//                timeMain.setText("0" + hours + ":0" + minutes + ":" + seconds);
-//
-//            } else if (seconds <= 9 && hours <= 9) {
-//                timeMain.setText("0" + hours + ":0" + minutes + ":" + seconds);
-//
-//            } else {
-//                timeMain.setText(hours + ":" + minutes + ":" + seconds);
-//            }
-//
-//            myHandler.postDelayed(this, 0);
-//        }
-//    };
-
 }
